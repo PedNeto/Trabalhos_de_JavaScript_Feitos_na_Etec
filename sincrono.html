@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequencia de Fluxo JavaScript</title>
+</head>
+
+<body>
+    <h2>Sequencia de Fluxo JavaScript</h2>
+    <p>https://www.w3schools.com/js/js_callback.asp</p>
+    <p>https://www.w3schools.com/js/js_asynchronous.asp</p>
+
+    <p id="demo"></p>
+    <script>
+        function Mostrar(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+        function Primeira() {
+            Mostrar("Hello");
+        }
+        function Segunda() {
+            Mostrar("Goodbye");
+            
+        }
+        Primeira();
+        Segunda();
+    </script>
+</body>
+
+</html>

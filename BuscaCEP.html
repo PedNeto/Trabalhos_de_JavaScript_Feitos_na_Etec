@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca CEP</title>
+    <script>
+        async function getData(cep) {
+            try {
+                let response = await fetch('http://viacep.com.br/ws/' + cep + '/json/');
+                let data = await response.json();
+
+                document.getElementById('logradouro').innerHTML = data.logradouro;
+                document.getElementById('bairro').innerHTML = data.bairro;
+                document.getElementById('localidade').innerHTML = data.localidade;
+                document.getElementById('uf').innerHTML = data.uf;
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('logradouro').innerHTML = error;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" name="cep" id="cep">
+        <button onclick="getData(cep.value)">Busca CEP</button>
+    </div>
+    <p>
+        <p id="logradouro"></p>
+        <p id="bairro"></p>
+        <p id="localidade"></p>
+        <p id="uf"></p>
+    </p>
+
+</body>
+</html>
